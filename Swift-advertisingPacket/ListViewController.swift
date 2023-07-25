@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  Swift-advertisingPacket
 //
 //  Created by Sarah Jeong on 2023/07/24.
@@ -8,21 +8,29 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
     
+    // CBCentralManager
     var centralManager: CBCentralManager!
 
+    @IBOutlet weak var toggleBLE: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
-    
+        
     }
+    
+    @IBAction func toggleBtn(_ sender: Any) {
+        
+        if centralManager.state == .poweredOn {
+            centralManager.scanForPeripherals(withServices: nil)
+        }
+    }
+    
 }
 
-extension ViewController:CBCentralManagerDelegate {
-    
+extension ListViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         
         switch central.state {
@@ -41,6 +49,6 @@ extension ViewController:CBCentralManagerDelegate {
         default:
             print("central state is default unknown")
         }
+        
     }
 }
-

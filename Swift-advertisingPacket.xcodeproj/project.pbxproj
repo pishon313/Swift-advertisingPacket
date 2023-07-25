@@ -13,6 +13,10 @@
 		88DB3CDC2A6E2C34001CB6F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CDA2A6E2C34001CB6F1 /* Main.storyboard */; };
 		88DB3CDE2A6E2C37001CB6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CDD2A6E2C37001CB6F1 /* Assets.xcassets */; };
 		88DB3CE12A6E2C37001CB6F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CDF2A6E2C37001CB6F1 /* LaunchScreen.storyboard */; };
+		88DB3CEB2A6E95BE001CB6F1 /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */; };
+		88DB3CF42A6E9654001CB6F1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */; };
+		88DB3CF52A6E9654001CB6F1 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */; };
+		88DDB09B2A7035F7003753F1 /* AdvertisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		88DB3CDD2A6E2C37001CB6F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88DB3CE02A6E2C37001CB6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88DB3CE22A6E2C37001CB6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
+		88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 				88DB3CD42A6E2C34001CB6F1 /* AppDelegate.swift */,
 				88DB3CD62A6E2C34001CB6F1 /* SceneDelegate.swift */,
 				88DB3CD82A6E2C34001CB6F1 /* ViewController.swift */,
+				88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */,
+				88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */,
+				88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */,
+				88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */,
 				88DB3CDA2A6E2C34001CB6F1 /* Main.storyboard */,
 				88DB3CDD2A6E2C37001CB6F1 /* Assets.xcassets */,
 				88DB3CDF2A6E2C37001CB6F1 /* LaunchScreen.storyboard */,
@@ -127,6 +139,7 @@
 			files = (
 				88DB3CE12A6E2C37001CB6F1 /* LaunchScreen.storyboard in Resources */,
 				88DB3CDE2A6E2C37001CB6F1 /* Assets.xcassets in Resources */,
+				88DB3CF52A6E9654001CB6F1 /* ListViewController.xib in Resources */,
 				88DB3CDC2A6E2C34001CB6F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88DB3CD92A6E2C34001CB6F1 /* ViewController.swift in Sources */,
+				88DDB09B2A7035F7003753F1 /* AdvertisingViewController.swift in Sources */,
+				88DB3CEB2A6E95BE001CB6F1 /* ListTableView.swift in Sources */,
 				88DB3CD52A6E2C34001CB6F1 /* AppDelegate.swift in Sources */,
+				88DB3CF42A6E9654001CB6F1 /* ListViewController.swift in Sources */,
 				88DB3CD72A6E2C34001CB6F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +306,8 @@
 				DEVELOPMENT_TEAM = 2XMC344WDV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-advertisingPacket/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "블루투스 사용 권한을 허용ㅎ";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +336,8 @@
 				DEVELOPMENT_TEAM = 2XMC344WDV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-advertisingPacket/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "블루투스 사용 권한을 허용ㅎ";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
