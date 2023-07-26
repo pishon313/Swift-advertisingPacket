@@ -11,7 +11,7 @@ class ListCell: UITableViewCell {
     
     
     @IBOutlet weak var deviceName: UILabel!
-    @IBOutlet weak var address: UILabel!
+//    @IBOutlet weak var address: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -17,6 +17,7 @@
 		88DB3CF42A6E9654001CB6F1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */; };
 		88DDB09B2A7035F7003753F1 /* AdvertisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */; };
 		88DDB0A22A711D50003753F1 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DDB0A02A711D50003753F1 /* ListCell.swift */; };
+		88F24D812A71691400896B3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F24D802A71691400896B3B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingViewController.swift; sourceTree = "<group>"; };
 		88DDB0A02A711D50003753F1 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		88F24D802A71691400896B3B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				88DB3CD82A6E2C34001CB6F1 /* ViewController.swift */,
 				88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */,
 				88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */,
+				88F24D802A71691400896B3B /* DetailViewController.swift */,
 				88DDB0A02A711D50003753F1 /* ListCell.swift */,
 				88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */,
 				88DB3CDA2A6E2C34001CB6F1 /* Main.storyboard */,
@@ -157,6 +160,7 @@
 				88DB3CD52A6E2C34001CB6F1 /* AppDelegate.swift in Sources */,
 				88DB3CF42A6E9654001CB6F1 /* ListViewController.swift in Sources */,
 				88DB3CD72A6E2C34001CB6F1 /* SceneDelegate.swift in Sources */,
+				88F24D812A71691400896B3B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

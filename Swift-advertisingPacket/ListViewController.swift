@@ -13,6 +13,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // CBCentralManager
     var centralManager: CBCentralManager!
     var peripherals: [CBPeripheral] = []
+    var rssiValues:[NSNumber] = []
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var toggleBLE: UISwitch!
@@ -25,24 +26,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
 
-        self.toggleBLE.addTarget(self, action: #selector(self.onClickSwitch(sender:)), for: UIControl.Event.valueChanged)
+//        self.toggleBLE.addTarget(self, action: #selector(self.onClickSwitch(sender:)), for: UIControl.Event.valueChanged)
 
     }
     
-//    @IBAction func toggleBtn(_ sender: UISwitch) {
-//
+    @IBAction func toggleBtn(_ sender: UISwitch) {
+
 //        if centralManager.state == .poweredOn {
 //            centralManager.scanForPeripherals(withServices: nil)
 //        }
-//
-//        if toggleBLE.isOn {
-//            scanForBLEDevice()
-//        } else {
-//            centralManager.stopScan()
-//        }
-//    }
-    
-    @objc func onClickSwitch(sender: UISwitch) {
+
         if toggleBLE.isOn {
             scanForBLEDevice()
             print("switch is ON")
@@ -51,6 +44,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("switch is OFF")
         }
     }
+    
+//    @objc func onClickSwitch(sender: UISwitch) {
+//        if toggleBLE.isOn {
+//            scanForBLEDevice()
+//        } else if !toggleBLE.isOn {
+//            centralManager.stopScan()
+//            print("switch is OFF")
+//        }
+//    }
     
     func scanForBLEDevice() {
         if centralManager.state == .poweredOn {
@@ -81,14 +83,33 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let peripheral = peripherals[indexPath.row]
         
         listCell.deviceName.text = peripheral.name ?? "Unknown device"
-        listCell.address.text = peripheral.identifier.uuidString
         listCell.backgroundColor = UIColor.clear.withAlphaComponent(0)
 
         return listCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//        let detailVC = DetailViewController()
+        let peripheral = peripherals[indexPath.row]
+        let rssiValue = rssiValues[indexPath.row]
+        
+        detailViewController.deviceName = peripheral.name
+        detailViewController.uuidString = peripheral.identifier.uuidString
+        detailViewController.rssiString = rssiValue.stringValue
+        
+        print("name: \(String(describing: peripheral.name))")
+        print("uuidString: \(String(describing: peripheral.identifier.uuidString))")
+        print("rssiString: \(String(describing: rssiValue.stringValue))")
+        
+        present(detailViewController, animated: true, completion: nil)
+
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 50
     }
     
 }
@@ -118,9 +139,12 @@ extension ListViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if !peripherals.contains(peripheral) {
             peripherals.append(peripheral)
+            rssiValues.append(RSSI)
+            
             tableView.reloadData()
         }
         
         self.totalCount.text = String(peripherals.count)
+
     }
 }
