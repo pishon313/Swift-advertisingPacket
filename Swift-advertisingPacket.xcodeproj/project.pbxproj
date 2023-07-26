@@ -15,7 +15,6 @@
 		88DB3CE12A6E2C37001CB6F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CDF2A6E2C37001CB6F1 /* LaunchScreen.storyboard */; };
 		88DB3CEB2A6E95BE001CB6F1 /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */; };
 		88DB3CF42A6E9654001CB6F1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */; };
-		88DB3CF52A6E9654001CB6F1 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */; };
 		88DDB09B2A7035F7003753F1 /* AdvertisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		88DB3CE22A6E2C37001CB6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
 		88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +68,6 @@
 				88DB3CEA2A6E95BE001CB6F1 /* ListTableView.swift */,
 				88DB3CF22A6E9654001CB6F1 /* ListViewController.swift */,
 				88DDB09A2A7035F7003753F1 /* AdvertisingViewController.swift */,
-				88DB3CF32A6E9654001CB6F1 /* ListViewController.xib */,
 				88DB3CDA2A6E2C34001CB6F1 /* Main.storyboard */,
 				88DB3CDD2A6E2C37001CB6F1 /* Assets.xcassets */,
 				88DB3CDF2A6E2C37001CB6F1 /* LaunchScreen.storyboard */,
@@ -139,7 +136,6 @@
 			files = (
 				88DB3CE12A6E2C37001CB6F1 /* LaunchScreen.storyboard in Resources */,
 				88DB3CDE2A6E2C37001CB6F1 /* Assets.xcassets in Resources */,
-				88DB3CF52A6E9654001CB6F1 /* ListViewController.xib in Resources */,
 				88DB3CDC2A6E2C34001CB6F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

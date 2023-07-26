@@ -16,27 +16,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g5-aD-8k3">
-                                <rect key="frame" x="167" y="290" width="60" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="scan"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccz-cQ-2Fd">
-                                <rect key="frame" x="143" y="401" width="109" height="35"/>
+                                <rect key="frame" x="37" y="698" width="319" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="advertising"/>
+                                <connections>
+                                    <action selector="tapAdvertisingBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nIG-tH-rPJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g5-aD-8k3">
+                                <rect key="frame" x="37" y="632" width="319" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="scan"/>
+                                <connections>
+                                    <action selector="tapScanBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iuE-TL-tEn"/>
+                                    <segue destination="8xn-QD-0gl" kind="push" id="fbq-LP-uC0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="geV-Gx-PXw"/>
+                    <connections>
+                        <outlet property="advertisingBtn" destination="Ccz-cQ-2Fd" id="2bi-x6-YKN"/>
+                        <outlet property="scanBtn" destination="2g5-aD-8k3" id="uad-5q-BgJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="132"/>
+            <point key="canvasLocation" x="704.58015267175574" y="131.69014084507043"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="ku7-5F-neC">
+            <objects>
+                <viewController storyboardIdentifier="listViewController" id="8xn-QD-0gl" customClass="ListViewController" customModule="Swift_advertisingPacket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PAA-VK-6jB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-on-p3W">
+                                <rect key="frame" x="8" y="176" width="377" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3e-vz-Kxs">
+                                <rect key="frame" x="309" y="100" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleBtn:" destination="8xn-QD-0gl" eventType="touchUpInside" id="xlI-Al-EaS"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qwx-Y8-hW0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w7f-eP-Jcc"/>
+                    <connections>
+                        <outlet property="tableView" destination="k2M-on-p3W" id="2hH-Wx-JAO"/>
+                        <outlet property="toggleBLE" destination="x3e-vz-Kxs" id="7ba-K3-gkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cP0-Z3-KaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641.9847328244275" y="-161.26760563380282"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ia1-Pa-rA2">
