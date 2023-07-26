@@ -17,18 +17,56 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var toggleBLE: UISwitch!
     
+    @IBOutlet weak var totalCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: nil)
         tableView.dataSource = self
         tableView.delegate = self
+
+        self.toggleBLE.addTarget(self, action: #selector(self.onClickSwitch(sender:)), for: UIControl.Event.valueChanged)
+
     }
     
-    @IBAction func toggleBtn(_ sender: Any) {
-        
+//    @IBAction func toggleBtn(_ sender: UISwitch) {
+//
+//        if centralManager.state == .poweredOn {
+//            centralManager.scanForPeripherals(withServices: nil)
+//        }
+//
+//        if toggleBLE.isOn {
+//            scanForBLEDevice()
+//        } else {
+//            centralManager.stopScan()
+//        }
+//    }
+    
+    @objc func onClickSwitch(sender: UISwitch) {
+        if toggleBLE.isOn {
+            scanForBLEDevice()
+            print("switch is ON")
+        } else {
+            centralManager.stopScan()
+            print("switch is OFF")
+        }
+    }
+    
+    func scanForBLEDevice() {
         if centralManager.state == .poweredOn {
             centralManager.scanForPeripherals(withServices: nil)
+        } else if centralManager.state == .poweredOff {
+            // BLE 권한을 켜달라는 팝업
         }
+    }
+    
+    //ListCell regist
+    let cellName = "ListCell"
+    let cellReuseIdentifier = "listCell"
+    
+    func registerXib() {
+        let nibName = UINib(nibName: cellName, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     // MARK: - TableView Methods
@@ -37,11 +75,20 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let peripheral = peripherals[indexPath.row]
-        cell.textLabel?.text = peripheral.name ?? "Unknown Device"
         
-        return cell
+        let listCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! ListCell
+        
+        let peripheral = peripherals[indexPath.row]
+        
+        listCell.deviceName.text = peripheral.name ?? "Unknown device"
+        listCell.address.text = peripheral.identifier.uuidString
+        listCell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+
+        return listCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
 }
@@ -73,5 +120,7 @@ extension ListViewController: CBCentralManagerDelegate {
             peripherals.append(peripheral)
             tableView.reloadData()
         }
+        
+        self.totalCount.text = String(peripherals.count)
     }
 }

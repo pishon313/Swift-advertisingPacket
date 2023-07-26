@@ -57,10 +57,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-on-p3W">
-                                <rect key="frame" x="8" y="176" width="377" height="584"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-on-p3W">
+                                <rect key="frame" x="8" y="173" width="377" height="584"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" rowHeight="150" id="wVC-kX-AWD" customClass="ListCell" customModule="Swift_advertisingPacket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="377" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wVC-kX-AWD" id="bMQ-mc-P7s">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bco-6m-MiZ">
+                                                    <rect key="frame" x="35" y="11" width="41.333333333333343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Not-x0-jOM">
+                                                    <rect key="frame" x="35" y="47" width="41.333333333333343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Not-x0-jOM" firstAttribute="top" secondItem="bco-6m-MiZ" secondAttribute="bottom" constant="15" id="VxA-h7-XmM"/>
+                                                <constraint firstItem="Not-x0-jOM" firstAttribute="leading" secondItem="bMQ-mc-P7s" secondAttribute="leadingMargin" constant="15" id="q4K-tE-zWl"/>
+                                                <constraint firstItem="bco-6m-MiZ" firstAttribute="top" secondItem="bMQ-mc-P7s" secondAttribute="topMargin" id="vx3-c9-0WT"/>
+                                                <constraint firstItem="bco-6m-MiZ" firstAttribute="leading" secondItem="bMQ-mc-P7s" secondAttribute="leadingMargin" constant="15" id="z0A-LR-Waz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="address" destination="Not-x0-jOM" id="46x-fP-8dT"/>
+                                            <outlet property="deviceName" destination="bco-6m-MiZ" id="tKK-rB-q4F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3e-vz-Kxs">
                                 <rect key="frame" x="309" y="100" width="49" height="31"/>
@@ -69,6 +104,20 @@
                                     <action selector="toggleBtn:" destination="8xn-QD-0gl" eventType="touchUpInside" id="xlI-Al-EaS"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Count: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxE-UP-4yQ">
+                                <rect key="frame" x="213" y="776" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6B-ox-jZj">
+                                <rect key="frame" x="325" y="776" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qwx-Y8-hW0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -77,6 +126,7 @@
                     <connections>
                         <outlet property="tableView" destination="k2M-on-p3W" id="2hH-Wx-JAO"/>
                         <outlet property="toggleBLE" destination="x3e-vz-Kxs" id="7ba-K3-gkP"/>
+                        <outlet property="totalCount" destination="Q6B-ox-jZj" id="dev-Fh-q4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cP0-Z3-KaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
