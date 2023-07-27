@@ -8,9 +8,13 @@
 import Foundation
 import UIKit
 
+protocol connectDelegate: AnyObject {
+    func connectiong()
+}
 
 class DetailViewController: UIViewController {
     
+    var connectionDelegate: connectDelegate?
     
     @IBOutlet weak var detailDeviceName: UILabel!
     @IBOutlet weak var serviceUUID: UILabel!
@@ -26,6 +30,12 @@ class DetailViewController: UIViewController {
         detailDeviceName.text = deviceName ?? "Unknown device"
         serviceUUID.text = uuidString ?? "None"
         rssiValue.text = rssiString ?? "None"
+    }
+    
+    
+    @IBAction func connectionBtn(_ sender: UIButton) {
+        connectionDelegate?.connectiong()
+        print("click Button")
     }
     
 }
