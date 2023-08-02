@@ -23,6 +23,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="advertising"/>
                                 <connections>
                                     <action selector="tapAdvertisingBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nIG-tH-rPJ"/>
+                                    <segue destination="sir-At-OQf" kind="push" id="Qk5-tj-NXS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g5-aD-8k3">
@@ -48,6 +49,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704.58015267175574" y="131.69014084507043"/>
+        </scene>
+        <!--Advertising View Controller-->
+        <scene sceneID="TZL-RT-GVS">
+            <objects>
+                <viewController id="sir-At-OQf" customClass="AdvertisingViewController" customModule="Swift_advertisingPacket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yaU-HX-f2e">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eeo-BF-6Je">
+                                <rect key="frame" x="319" y="110" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="peripheralSwitchOnOff:" destination="sir-At-OQf" eventType="valueChanged" id="869-W3-z7C"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🌞 Start advertising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8S-yR-J2w">
+                                <rect key="frame" x="146" y="110" width="165" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="V6s-6U-c9z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cbX-wI-sdf"/>
+                    <connections>
+                        <outlet property="adverStatusLB" destination="F8S-yR-J2w" id="V96-Cv-EnD"/>
+                        <outlet property="peripheralSwitch" destination="Eeo-BF-6Je" id="QDg-Td-s5W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSe-4m-a1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695.4198473282443" y="645.77464788732402"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="ku7-5F-neC">

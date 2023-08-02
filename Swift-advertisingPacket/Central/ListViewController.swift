@@ -118,9 +118,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         detailViewController.uuidString = peripheral.identifier.uuidString
         detailViewController.rssiString = rssiValue.stringValue
         
-        print("name: \(String(describing: peripheral.name))")
+        print("Device name: \(String(describing: peripheral.name))")
         print("uuidString: \(String(describing: peripheral.identifier.uuidString))")
         print("rssiString: \(String(describing: rssiValue.stringValue))")
+//        print("manufacturer ID: \(String(describing: ))")
         
         present(detailViewController, animated: true, completion: nil)
 
@@ -163,8 +164,10 @@ extension ListViewController: CBCentralManagerDelegate {
             }
             
             if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
+                let manufacturerString = String(data: manufacturerData, encoding: .utf8)
                 var bytes = [UInt8](manufacturerData)
                 print("ManufacturerData Data: \(bytes)")
+                print("manufacturerString: \(manufacturerString)")
             }
             
             if let serviceUUIDs = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
