@@ -24,6 +24,8 @@ class AdvertisingViewController: UIViewController, CBPeripheralManagerDelegate {
     var timerOn: Bool = false
     var refreshTimer: Timer?
     
+    var peripheralManager: PeripheralManager?
+    
     @IBOutlet weak var adverStatusLB: UILabel!
     @IBOutlet weak var peripheralSwitch: UISwitch!
     
@@ -35,6 +37,9 @@ class AdvertisingViewController: UIViewController, CBPeripheralManagerDelegate {
         
         peripheralSwitch.isOn = false
         adverStatusLB.text = "🌞 Start advertising"
+        
+        peripheralManager = PeripheralManager()
+        peripheralManager?.delegate = self
         
     }
     

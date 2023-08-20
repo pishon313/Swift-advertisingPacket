@@ -206,8 +206,6 @@ extension ListViewController: CBCentralManagerDelegate, CBPeripheralDelegate {
                 }
             }
             
-//            print("kCBAdvDataManufacturerData: \(kCBAdvDataManufacturerData)")
-            
             if let serviceUUIDs = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
                 for uuid in serviceUUIDs {
                     print("Service UUID: \(uuid)")

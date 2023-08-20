@@ -52,6 +52,7 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func scanForBLEDevice() {
         if centralManager.state == .poweredOn {
             centralManager.scanForPeripherals(withServices: nil)
+            
         } else if centralManager.state == .poweredOff {
             // BLE 권한을 켜달라는 팝업
         }
@@ -118,6 +119,7 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
+        
         if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
             
             var hexString = manufacturerData.map { String(format: "%02hhx", $0) }.joined()
@@ -148,6 +150,8 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     print("peripheral.append: \(peripheral)")
                 }
                 
+                print("KCBhexString: \(KCBhexString)")
+                
                 // MaterialCode Data
                 if KCBhexString.count >= 10 {
                     let slicedArray = Array(KCBhexString[0..<9])
@@ -159,7 +163,14 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
                         materialCode.append(metarialCodeString)
                     }
                 }
+                
+                var advData = advertisementData
+                print("advData: \(advertisementData)")
             }
+        }
+        
+        if let kCBAdvDataServiceUUIDs = advertisementData["kCBAdvDataServiceUUIDs"] {
+            print("kCBAdvDataServiceUUIDs: \(kCBAdvDataServiceUUIDs)")
         }
         
         tableView.reloadData()
@@ -169,6 +180,8 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         
         self.globalPeripheral.discoverServices(nil)
+        
+        print("연결 후 peripheral: \(peripheral)")
     
     }
     
@@ -190,6 +203,12 @@ class CowayScanData: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 }
             }
         }
+            
         tableView.reloadData()
     }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("didUpdateValue For: \(peripheral)")
+    }
+    
 }
